@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    transition:
+        background 0.5s ease,
+        color 0.5s ease;
+}
+
+/* =========================================
+   THEME TOGGLE
+   ========================================= */
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+/* =========================================
+   DARK THEME
+   ========================================= */
+
+.theme-dark body {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(16, 185, 129, 0.08),
+            transparent 30%
+        ),
+        #000000;
+
+    color: #ffffff;
+}
+
+/* =========================================
+   LIGHT LAVENDER THEME
+   ========================================= */
+
+.theme-light body {
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(216, 180, 254, 0.75),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 95% 10%,
+            rgba(192, 132, 252, 0.35),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(233, 213, 255, 0.7),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #fbf8ff,
+            #f0e6ff,
+            #faf6ff
+        );
+
+    color: #352044;
+}
+
+/* =========================================
+   LAVENDER BACKGROUNDS
+   ========================================= */
+
+.theme-light .bg-black {
+    background: rgba(255, 255, 255, 0.88) !important;
+}
+
+.theme-light [class*="bg-black/"] {
+    background: rgba(255, 255, 255, 0.72) !important;
+}
+
+.theme-light [class*="bg-emerald-950"] {
+    background: #eee4fa !important;
+}
+
+.theme-light [class*="bg-emerald-900"] {
+    background: #e7d9f5 !important;
+}
+
+.theme-light [class*="bg-emerald-800"] {
+    background: #dfcef0 !important;
+}
+
+.theme-light [class*="bg-emerald-700"] {
+    background: #d4bdea !important;
+}
+
+/* =========================================
+   LAVENDER ACCENT
+   ========================================= */
+
+.theme-light [class*="bg-emerald-500"] {
+    background: linear-gradient(
+        135deg,
+        #c084fc,
+        #a855f7
+    ) !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 8px 25px rgba(168, 85, 247, 0.28),
+        inset 0 1px 2px rgba(255, 255, 255, 0.55);
+}
+
+/* =========================================
+   LAVENDER BORDERS
+   ========================================= */
+
+.theme-light [class*="border-emerald"] {
+    border-color: rgba(168, 85, 247, 0.3) !important;
+}
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.theme-light .text-white {
+    color: #352044 !important;
+}
+
+.theme-light [class*="text-gray-"] {
+    color: #765d87 !important;
+}
+
+.theme-light [class*="text-emerald"] {
+    color: #8b45c7 !important;
+}
+
+.theme-light [class*="text-green"] {
+    color: #8b45c7 !important;
+}
+
+/* =========================================
+   LAVENDER PROGRESS BARS
+   ========================================= */
+
+.theme-light [class*="bg-emerald-500"].h-full {
+    background: linear-gradient(
+        90deg,
+        #c084fc,
+        #a855f7
+    ) !important;
+}
+
+/* =========================================
+   INPUTS / TEXTAREAS
+   ========================================= */
+
+.theme-light input,
+.theme-light textarea,
+.theme-light select {
+    background: rgba(255, 255, 255, 0.78) !important;
+    color: #352044 !important;
+    border-color: rgba(168, 85, 247, 0.28) !important;
+}
+
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+    color: #a38caf !important;
+}
+
+/* =========================================
+   SOFT SHADOWS
+   ========================================= */
+
+.theme-light [class*="shadow"] {
+    box-shadow:
+        0 10px 30px rgba(126, 34, 206, 0.1) !important;
+}
+
+/* =========================================
+   THEME TOGGLE - LIGHT MODE
+   ========================================= */
+
+.theme-light .theme-toggle {
+    background: rgba(255, 255, 255, 0.8);
+
+    border-color: rgba(168, 85, 247, 0.25);
+
+    box-shadow:
+        0 8px 25px rgba(126, 34, 206, 0.15),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   SMOOTH TRANSITIONS
+   ========================================= */
+
+body,
+button,
+input,
+textarea,
+select,
+div {
+    transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        color 0.25s ease,
+        box-shadow 0.35s ease;
+}

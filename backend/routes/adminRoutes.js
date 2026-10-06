@@ -1,0 +1,18 @@
+const express = require("express");
+const { requireAuth, requireRole, requirePermission } = require("../middleware/auth");
+const { getOverview, getUsers, updateUserStatus, getUserActivity, getAlerts, updateAlert, getUserTrend, getAuditLogs, getNotifications, markNotificationRead, getSettings, updateSettings } = require("../controllers/adminController");
+const router = express.Router();
+router.use(requireAuth, requireRole("admin"));
+router.get("/overview", requirePermission("analytics.read"), getOverview);
+router.get("/users", requirePermission("users.read"), getUsers);
+router.patch("/users/:id/status", requirePermission("users.manage"), updateUserStatus);
+router.get("/users/:id/activity", requirePermission("users.read"), getUserActivity);
+router.get("/users/:id/trend", requirePermission("analytics.read"), getUserTrend);
+router.get("/alerts", requirePermission("alerts.manage"), getAlerts);
+router.patch("/alerts/:id", requirePermission("alerts.manage"), updateAlert);
+router.get("/audit-logs", requirePermission("audit.read"), getAuditLogs);
+router.get("/notifications", requirePermission("notifications.read"), getNotifications);
+router.patch("/notifications/:id/read", requirePermission("notifications.read"), markNotificationRead);
+router.get("/settings", requirePermission("settings.manage"), getSettings);
+router.patch("/settings", requirePermission("settings.manage"), updateSettings);
+module.exports = router;
